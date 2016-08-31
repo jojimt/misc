@@ -1,0 +1,5 @@
+#get pid
+docker inspect --format '{{.State.Pid}}' <container-id>
+
+#
+nsenter -t <pid> -n -F ip link show

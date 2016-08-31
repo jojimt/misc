@@ -1,0 +1,29 @@
+530  iptables -t nat -N contivNodePort
+  531* 
+  532  vi /tmp/ipt_help.log 
+  533  vi /tmp/ipt.log 
+  534  iptables -t nat -A contivNodeport -m tcp --dport 30000 -j MASQUERADE
+  535  vi /tmp/ipt.log 
+  536  iptables -t nat -A contivNodeport -m tcp --dport 30000 -j MASQUERADE
+  537  iptables -t nat -A contivNodePort -m tcp --dport 30000 -j MASQUERADE
+  538  iptables -A contivNodePort -m tcp --dport 30000 -j MASQUERADE
+  539  iptables -t nat -A contivNodePort -m tcp --dport 30000 -j MASQUERADE
+  540  dmesg > /tmp/dmesg.log
+  541  vi /tmp/dmesg.log 
+  542  vi /tmp/ipt.log 
+  543  iptables -t nat -A contivNodePort -p tcp -m tcp --dport 30000 -j MASQUERADE
+  544  iptables -t nat -A contivNodePort -m -p tcp --dport 30000 -j MASQUERADE
+  545  vi /tmp/ipt.log 
+  546  iptables -t nat -A contivNodePort -p tcp -m tcp --dport 30000 -j MASQUERADE
+  547  dmesg > /tmp/dmesg.log
+  548  vi /tmp/dmesg.log 
+  549  vi /tmp/ipt.log 
+  550  iptables -t nat -A contivNodePort -p tcp -m tcp --dport 30000 -j DNAT --to-destination 20.1.1.22:80
+  551  curl 172.20.0.1:80
+  552  ifconfig | more
+  553  iptables -t nat -A contivNodePort -p tcp -m tcp --dport 30001 -j DNAT --to-destination 20.1.1.22:5001
+  554  curl 172.20.0.1:5001
+  555  curl 172.20.0.1:5001
+  556  curl 10.193.231.205:30001
+  557  iptables -t nat -A contivNodePort -p tcp -m tcp --dport 30002 -j DNAT --to-destination 172.20.0.1:5001
+

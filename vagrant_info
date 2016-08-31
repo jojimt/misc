@@ -1,0 +1,35 @@
+# delete stale box
+$ VBoxManage list runningvms
+$ VBoxManage controlvm <uuid> poweroff
+$ VBoxManage unregistervm <uuid>
+
+
+# Save a vagrant VM
+vagrant package --base name --output /path/to/name.box
+
+The --base NAME, name should be either the new VM's name or its UUID.
+
+You can get it by using the following command:
+
+$ VBoxManage list vms
+
+#To use the saved box
+vagrant destroy, add the path to package.box to config.vm.box_url in the vagrant file and do vagrant up again.
+
+workaround:
+Workaround for vagrant 1.7.2 :
+In file /opt/vagrant/embedded/gems/gems/vagrant-1.7.2/plugins/communicators/ssh/communicator.rb
+line 171 : add .env after @machine :
+@machine.env.data_dir.join("private_key").open("w+") do |f|
+
+/***************************************************
+#Resize vagrant disk size -- DOES NOT work for VMDK
+$ VBoxManage list hdds
+[get the UUID of the disk in question from the output]
+$ VBoxManage modifyhd [UUID] --resize [size in MiB]
+****************************************************/
+
+ansible authentication failure:
+
+use password
+delete .vagrant and .ssh/known_hosts

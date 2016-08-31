@@ -1,0 +1,30 @@
+# login for vm: poPPee123
+netstat -tlpun
+
+kubectl exec busybox --
+
+kubectl exec noping-busybox -- nc -w 1 21.1.1.4 6379
+/usr/bin/ovs-ofctl -O Openflow13 dump-flows contivVxlanBridge > f.log
+kubectl exec -p $POD -i -t -- bash
+kubectl scale --replicas=5 rc/foo
+tcpdump -w log.pcap -i eth0 "tcp[tcpflags] & (tcp-syn) != 0"
+tcpdump -r log.pcap > l1
+grep  " ack " l1 | wc -l
+
+while read p; do
+  echo $p
+done <peptides.txt
+
+git rebase -i upstream/master
+
+kubectl describe pods | grep -E '^Name:|IP'
+
+ip tuntap add tap0 mode tap
+
+sudo pip install ansible==2.0.0.2
+
+#Inspect
+curl localhost:9090/inspect/driver | python -mjson.tool
+
+# tcpdump to look for vlan 20
+tcpdump -i eth0 -Uw - | tcpdump -en -r - vlan 20
